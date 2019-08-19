@@ -12,14 +12,14 @@ public class Register {
     private var locked: Bool = false
     var viewRegister: [String: Any] = [:]
     
-    init() {}
+    public init() {}
     
-    init(registerStore: [String: Any]) {
+    public init(registerStore: [String: Any]) {
         self.registerStore = registerStore
         self.locked = true
     }
     
-    func add<T: CSEntityProtocol>(entityType: T.Type, forKey: String) throws {
+    public func add<T: CSEntityProtocol>(entityType: T.Type, forKey: String) throws {
         if registerStore[forKey] == nil && !locked {
             registerStore[forKey] = entityType
             viewRegister[forKey] = try CSView<T>()
@@ -28,13 +28,13 @@ public class Register {
         }
     }
     
-    func get<T: CSEntityProtocol>(forKey: String) throws -> T.Type {
+    public func get<T: CSEntityProtocol>(forKey: String) throws -> T.Type {
         guard let type = registerStore[forKey], let result = type as? T.Type else {
             throw CSCoreDBError.registerError(message: "No type found for this key.")
         }
         return result
     }
-    func getAll<T: CSEntityProtocol>() -> [T.Type] {
+    public func getAll<T: CSEntityProtocol>() -> [T.Type] {
         var result: [T.Type] = []
         for (_, value) in self.registerStore {
             if let r: T.Type = value as? T.Type {
@@ -43,11 +43,11 @@ public class Register {
         }
         return result
     }
-    func resolve<T: CSEntityProtocol>(forKey: String) throws -> T {
+    public func resolve<T: CSEntityProtocol>(forKey: String) throws -> T {
         let result: T.Type = try self.get(forKey: forKey)
         return result.init()
     }
-    func resoveAll<T:CSEntityProtocol>() -> [T] {
+    public func resoveAll<T:CSEntityProtocol>() -> [T] {
         var result: [T] = []
         for t: T.Type in self.getAll() {
             result.append(t.init())
