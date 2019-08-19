@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CSPropertyDescription<Entity: CSEntityProtocol>: Encodable {
+public struct CSPropertyDescription<Entity: CSEntityProtocol>: Encodable {
     var fieldType: FieldType = FieldType.text
     var jsType: JSType = JSType.string
     let keyPath: KeyPath<Entity, Any>
@@ -19,7 +19,7 @@ struct CSPropertyDescription<Entity: CSEntityProtocol>: Encodable {
         case fieldType, jsType, colWidth, name
     }
     // Encodable conformance
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
         try container.encode(fieldType, forKey: .fieldType)
@@ -28,7 +28,7 @@ struct CSPropertyDescription<Entity: CSEntityProtocol>: Encodable {
     }
 }
 
-enum FieldType: String, Codable {
+public enum FieldType: String, Codable {
     case text,
     hidden,
     select,
@@ -46,7 +46,7 @@ enum FieldType: String, Codable {
     `switch`
 }
 
-enum ColWidth: Int, Codable {
+public enum ColWidth: Int, Codable {
     case small = 50
     case normal = 150
     case medium = 200
@@ -56,6 +56,6 @@ enum ColWidth: Int, Codable {
     case extraLarge = 500
 }
 
-enum JSType: String, Codable {
+public enum JSType: String, Codable {
     case number, float, string, bool, datetime, array, object
 }

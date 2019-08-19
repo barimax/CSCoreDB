@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Register {
+public class Register {
     var registerStore: [String: Any] = [:]
     private var locked: Bool = false
     var viewRegister: [String: Any] = [:]

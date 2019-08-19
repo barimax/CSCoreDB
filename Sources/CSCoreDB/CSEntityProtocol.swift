@@ -19,7 +19,7 @@ public protocol CSEntityProtocol: Codable, TableNameProvider {
     
 }
 
-extension CSEntityProtocol {
+public extension CSEntityProtocol {
     
     func json() throws -> String {
         let data = try JSONEncoder().encode(self)

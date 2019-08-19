@@ -8,7 +8,7 @@ import Foundation
 import PerfectCRUD
 import PerfectMySQL
 
-class CSBaseView<E: CSEntityProtocol>: CSViewProtocol {
+public class CSBaseView<E: CSEntityProtocol>: CSViewProtocol {
     var db: Database<MySQLDatabaseConfiguration>
     var table: Table<E, Database<MySQLDatabaseConfiguration>>
     
@@ -47,7 +47,7 @@ class CSBaseView<E: CSEntityProtocol>: CSViewProtocol {
     }
 }
 
-class CSView<E: CSEntityProtocol>: CSBaseView<E> {
+public class CSView<E: CSEntityProtocol>: CSBaseView<E> {
     convenience init() throws {
         try self.init(dbConfiguration: CSCoreDBConfig.dbConfiguration)
     }

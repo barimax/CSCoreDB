@@ -1,6 +1,6 @@
 import JSONConfig
 
-struct CSCoreDB {
+public struct CSCoreDB {
     let host: String
     let username: String
     let password: String
@@ -8,6 +8,6 @@ struct CSCoreDB {
     let port: Int = 3306
 }
 
-struct CSCoreDBConfig {
+public struct CSCoreDBConfig {
     static var dbConfiguration: CSCoreDB?
 }
