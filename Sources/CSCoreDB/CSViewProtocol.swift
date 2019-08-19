@@ -1,6 +1,6 @@
 //
 //  CSViewProtocol.swift
-//  CS-CoreDB
+//  CSCoreDB
 //
 //  Created by Georgie Ivanov on 18.08.19.
 //
