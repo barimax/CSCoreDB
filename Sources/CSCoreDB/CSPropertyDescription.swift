@@ -7,23 +7,23 @@
 
 import Foundation
 
-public struct CSPropertyDescription<Entity: CSEntityProtocol>: Encodable {
+public struct CSPropertyDescription: Encodable {
     public let fieldType: FieldType,
     jsType: JSType,
-    keyPath: PartialKeyPath<Entity>,
+    keyPath: AnyKeyPath,
     colWidth: ColWidth,
     name: String,
     required: Bool,
-    ref: Entity?
+    ref: CSEntityProtocol?
     
     public init(
-        keyPath: PartialKeyPath<Entity>,
+        keyPath: AnyKeyPath,
         fieldType: FieldType = .text,
         jsType: JSType = .string,
         colWidth: ColWidth = .normal,
         name: String = "name",
         required: Bool = true,
-        ref: Entity? = nil
+        ref: CSEntityProtocol? = nil
         ){
         
         self.keyPath = keyPath

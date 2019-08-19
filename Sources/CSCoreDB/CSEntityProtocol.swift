@@ -12,7 +12,7 @@ public protocol CSEntityProtocol: Codable, TableNameProvider {
     static var tableName: String { get }
     static var singleName: String { get }
     static var pluralName: String { get }
-    static func refs() -> [CSPropertyDescription<Self>]
+    static func refs() -> [CSPropertyDescription]
     
     var id: Int { get set }
     

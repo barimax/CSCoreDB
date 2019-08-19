@@ -28,16 +28,16 @@ public class Register {
     }
     public func getView<T: CSEntityProtocol>(forKey: String) throws -> CSView<T> {
         
-        guard let entityType = registerStore[forKey], let result: T.Type = entityType as? T.Type else  {
+        guard let entityType = registerStore[forKey], let _ : T.Type = entityType as? T.Type else  {
             throw CSCoreDBError.registerError(message: "No type found for this key.")
         }
         return try CSView<T>(registerName: forKey)
     }
-    public func get<T: CSEntityProtocol>(forKey: String) throws -> T.Type {
-        guard let type = registerStore[forKey], let result = type as? T.Type else {
+    public func get(forKey: String) throws -> CSEntityProtocol {
+        guard let type = registerStore[forKey] else {
             throw CSCoreDBError.registerError(message: "No type found for this key.")
         }
-        return result
+        return type as! CSEntityProtocol
     }
     public func getAll<T: CSEntityProtocol>() -> [T.Type] {
         var result: [T.Type] = []
@@ -48,10 +48,10 @@ public class Register {
         }
         return result
     }
-    public func resolve<T: CSEntityProtocol>(forKey: String) throws -> T {
-        let result: T.Type = try self.get(forKey: forKey)
-        return result.init()
-    }
+//    public func resolve<T: CSEntityProtocol>(forKey: String) throws -> T {
+//        let result = try self.get(forKey: forKey)
+//        return result.init()
+//    }
     public func resoveAll<T:CSEntityProtocol>() -> [T] {
         var result: [T] = []
         for t: T.Type in self.getAll() {
