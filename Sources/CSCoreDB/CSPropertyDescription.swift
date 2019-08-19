@@ -8,13 +8,30 @@
 import Foundation
 
 public struct CSPropertyDescription<Entity: CSEntityProtocol>: Encodable {
-    var fieldType: FieldType
-    var jsType: JSType
-    let keyPath: KeyPath<Entity, Codable>
-    var colWidth: ColWidth
-    var name: String
-    var required: Bool
+    public let fieldType: FieldType,
+    jsType: JSType,
+    keyPath: PartialKeyPath<Entity>,
+    colWidth: ColWidth,
+    name: String,
+    required: Bool
     
+    public init(
+        keyPath: PartialKeyPath<Entity>,
+        fieldType: FieldType = .text,
+        jsType: JSType = .string,
+        colWidth: ColWidth = .normal,
+        name: String = "name",
+        required: Bool = true
+        ){
+        
+        self.keyPath = keyPath
+        self.fieldType = fieldType
+        self.jsType = jsType
+        self.colWidth = colWidth
+        self.name = name
+        self.required = required
+        
+    }
     // Codable keys
     enum CodingKeys: String, CodingKey {
         case fieldType, jsType, colWidth, name
