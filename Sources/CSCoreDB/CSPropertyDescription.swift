@@ -13,7 +13,8 @@ public struct CSPropertyDescription<Entity: CSEntityProtocol>: Encodable {
     keyPath: PartialKeyPath<Entity>,
     colWidth: ColWidth,
     name: String,
-    required: Bool
+    required: Bool,
+    ref: Entity?
     
     public init(
         keyPath: PartialKeyPath<Entity>,
@@ -21,7 +22,8 @@ public struct CSPropertyDescription<Entity: CSEntityProtocol>: Encodable {
         jsType: JSType = .string,
         colWidth: ColWidth = .normal,
         name: String = "name",
-        required: Bool = true
+        required: Bool = true,
+        ref: Entity? = nil
         ){
         
         self.keyPath = keyPath
@@ -30,7 +32,7 @@ public struct CSPropertyDescription<Entity: CSEntityProtocol>: Encodable {
         self.colWidth = colWidth
         self.name = name
         self.required = required
-        
+        self.ref = ref
     }
     // Codable keys
     enum CodingKeys: String, CodingKey {

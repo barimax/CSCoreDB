@@ -12,7 +12,7 @@ protocol CSViewProtocol: CSDatabaseProtocol {
     var pluralName: String { get }
     var entity: Entity? { get set }
     var rows: [Entity]? { get set }
-    var fields: [CSPropertyDescription<Entity>] { get set }
+    var fields: [CSPropertyDescription<Entity>] { get }
     
     func json() throws -> String
     func getAll() throws -> [Entity]
@@ -27,5 +27,8 @@ extension CSViewProtocol {
     }
     var pluralName: String {
         return Entity.pluralName
+    }
+    var fields: [CSPropertyDescription<Entity>] {
+        return Entity.refs()
     }
 }

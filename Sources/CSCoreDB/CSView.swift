@@ -9,6 +9,7 @@ import PerfectCRUD
 import PerfectMySQL
 
 public class CSBaseView<E: CSEntityProtocol>: CSViewProtocol {
+    
     var db: Database<MySQLDatabaseConfiguration>
     var table: Table<E, Database<MySQLDatabaseConfiguration>>
     
@@ -17,7 +18,6 @@ public class CSBaseView<E: CSEntityProtocol>: CSViewProtocol {
     let registerName: String
     var entity: Entity?
     var rows: [Entity]?
-    var fields: [CSPropertyDescription<Entity>] = []
     
     func json() throws -> String {
         throw CSCoreDBError.jsonDataError
@@ -50,8 +50,8 @@ public class CSBaseView<E: CSEntityProtocol>: CSViewProtocol {
 }
 
 public class CSView<E: CSEntityProtocol>: CSBaseView<E> {
+    
     convenience init(registerName: String) throws {
         try self.init(dbConfiguration: CSCoreDBConfig.dbConfiguration, registerName: registerName)
-        
     }
 }

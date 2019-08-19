@@ -22,16 +22,16 @@ public class Register {
     public func add<T: CSEntityProtocol>(entityType: T.Type, forKey: String) throws {
         if registerStore[forKey] == nil && !locked {
             registerStore[forKey] = entityType
-            viewRegister[forKey] = try CSView<T>(registerName: forKey)
         }else{
             throw CSCoreDBError.registerError(message: "Type for this key already exists.")
         }
     }
     public func getView<T: CSEntityProtocol>(forKey: String) throws -> CSView<T> {
-        guard let view = viewRegister[forKey], let result = view as? CSView<T> else {
+        
+        guard let entityType = registerStore[forKey], let result: T.Type = entityType as? T.Type else  {
             throw CSCoreDBError.registerError(message: "No type found for this key.")
         }
-        return result
+        return try CSView<T>(registerName: forKey)
     }
     public func get<T: CSEntityProtocol>(forKey: String) throws -> T.Type {
         guard let type = registerStore[forKey], let result = type as? T.Type else {
