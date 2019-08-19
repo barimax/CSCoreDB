@@ -8,7 +8,7 @@
 import Foundation
 import PerfectCRUD
 
-protocol CSEntityProtocol: Codable, TableNameProvider {
+public protocol CSEntityProtocol: Codable, TableNameProvider {
     static var tableName: String { get }
     
     var id: Int { get set }
