@@ -8,11 +8,12 @@
 import Foundation
 
 public struct CSPropertyDescription<Entity: CSEntityProtocol>: Encodable {
-    var fieldType: FieldType = FieldType.text
-    var jsType: JSType = JSType.string
-    let keyPath: KeyPath<Entity, Any>
-    var colWidth: ColWidth = ColWidth.normal
-    var name: String = ""
+    var fieldType: FieldType
+    var jsType: JSType
+    let keyPath: KeyPath<Entity, Codable>
+    var colWidth: ColWidth
+    var name: String
+    var required: Bool
     
     // Codable keys
     enum CodingKeys: String, CodingKey {
