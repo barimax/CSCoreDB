@@ -8,7 +8,7 @@
 import PerfectCRUD
 
 extension CSViewProtocol {
-    func delete(entityId id: Int) throws {
+    public func delete(entityId id: Int) throws {
         try table.where(\Entity.id == id).delete()
     }
 }

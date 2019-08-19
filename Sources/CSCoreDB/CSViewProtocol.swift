@@ -7,7 +7,7 @@
 import Foundation
 import PerfectCRUD
 
-protocol CSViewProtocol: CSDatabaseProtocol {
+public protocol CSViewProtocol: CSDatabaseProtocol {
     var singleName: String { get }
     var pluralName: String { get }
     var entity: Entity? { get set }
@@ -22,13 +22,13 @@ protocol CSViewProtocol: CSDatabaseProtocol {
 
 }
 extension CSViewProtocol {
-    var singleName: String {
+    public var singleName: String {
         return Entity.singleName
     }
-    var pluralName: String {
+    public var pluralName: String {
         return Entity.pluralName
     }
-    var fields: [CSPropertyDescription<Entity>] {
+    public var fields: [CSPropertyDescription<Entity>] {
         return Entity.refs()
     }
 }

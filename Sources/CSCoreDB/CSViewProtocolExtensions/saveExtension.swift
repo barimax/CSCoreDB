@@ -8,7 +8,7 @@
 import PerfectCRUD
 
 extension CSViewProtocol {
-    func save(entity: Entity) throws -> Entity {
+    public func save(entity: Entity) throws -> Entity {
         var newEntity: Entity = entity
         if entity.id > 0 {
             try table.where(\Entity.id == entity.id).update(entity)

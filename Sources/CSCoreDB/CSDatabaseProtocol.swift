@@ -9,7 +9,7 @@ import Foundation
 import PerfectCRUD
 import PerfectMySQL
 
-protocol CSDatabaseProtocol {
+public protocol CSDatabaseProtocol {
     associatedtype Entity: CSEntityProtocol
     var db: Database<MySQLDatabaseConfiguration> { get }
     var table: Table<Entity, Database<MySQLDatabaseConfiguration>> { get }

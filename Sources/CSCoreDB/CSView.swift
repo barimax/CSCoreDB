@@ -10,16 +10,16 @@ import PerfectMySQL
 
 public class CSBaseView<E: CSEntityProtocol>: CSViewProtocol {
     
-    var db: Database<MySQLDatabaseConfiguration>
-    var table: Table<E, Database<MySQLDatabaseConfiguration>>
+    public var db: Database<MySQLDatabaseConfiguration>
+    public var table: Table<E, Database<MySQLDatabaseConfiguration>>
     
-    typealias Entity = E
+    public typealias Entity = E
     
     let registerName: String
-    var entity: Entity?
-    var rows: [Entity]?
+    public var entity: Entity?
+    public var rows: [Entity]?
     
-    func json() throws -> String {
+    public func json() throws -> String {
         throw CSCoreDBError.jsonDataError
     }
     
