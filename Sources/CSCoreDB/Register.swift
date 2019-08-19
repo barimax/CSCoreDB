@@ -22,7 +22,7 @@ public class Register {
     public func add<T: CSEntityProtocol>(entityType: T.Type, forKey: String) throws {
         if registerStore[forKey] == nil && !locked {
             registerStore[forKey] = entityType
-            viewRegister[forKey] = try CSView<T>()
+            viewRegister[forKey] = try CSView<T>(registerName: forKey)
         }else{
             throw CSCoreDBError.registerError(message: "Type for this key already exists.")
         }

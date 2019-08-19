@@ -14,6 +14,7 @@ public class CSBaseView<E: CSEntityProtocol>: CSViewProtocol {
     
     typealias Entity = E
     
+    let registerName: String
     var entity: Entity?
     var rows: [Entity]?
     var fields: [CSPropertyDescription<Entity>] = []
@@ -22,7 +23,8 @@ public class CSBaseView<E: CSEntityProtocol>: CSViewProtocol {
         throw CSCoreDBError.jsonDataError
     }
     
-    init(dbConfiguration c: CSCoreDB?) throws {
+    init(dbConfiguration c: CSCoreDB?, registerName: String) throws {
+        self.registerName = registerName
         var dbConfiguration: CSCoreDB
         if let uc = c {
             dbConfiguration = uc
@@ -48,7 +50,8 @@ public class CSBaseView<E: CSEntityProtocol>: CSViewProtocol {
 }
 
 public class CSView<E: CSEntityProtocol>: CSBaseView<E> {
-    convenience init() throws {
-        try self.init(dbConfiguration: CSCoreDBConfig.dbConfiguration)
+    convenience init(registerName: String) throws {
+        try self.init(dbConfiguration: CSCoreDBConfig.dbConfiguration, registerName: registerName)
+        
     }
 }
