@@ -14,7 +14,7 @@ let package = Package(
 		.package(url: "https://github.com/PerfectlySoft/Perfect-MySQL.git", "3.0.0"..<"4.0.0")
 	],
 	targets: [
-		.target(name: "CSCoreDB", dependencies: []),
+		.target(name: "CSCoreDB", dependencies: ["PerfectCRUD", "JSONConfig", "PerfectMySQL"]),
 		.testTarget(name: "CSCoreDBTests", dependencies: ["CSCoreDB"])
 	]
 )
