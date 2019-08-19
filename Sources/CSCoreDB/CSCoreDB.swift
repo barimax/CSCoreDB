@@ -1,3 +1,13 @@
+import JSONConfig
+
 struct CSCoreDB {
-    var text = "Hello, World!"
+    let host: String
+    let username: String
+    let password: String
+    let database: String
+    let port: Int = 3306
+}
+
+struct CSCoreDBConfig {
+    static var dbConfiguration: CSCoreDB?
 }
