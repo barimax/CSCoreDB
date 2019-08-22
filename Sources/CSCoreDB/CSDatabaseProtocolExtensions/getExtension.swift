@@ -6,7 +6,7 @@
 //
 import PerfectCRUD
 
-extension CSViewProtocol {
+extension CSDatabaseProtocol {
     public func getAll() throws -> [Entity] {
         return try table.select().map { $0 }
     }

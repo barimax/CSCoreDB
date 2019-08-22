@@ -10,11 +10,10 @@ let package = Package(
 	],
 	dependencies: [
 		.package(url: "https://github.com/PerfectlySoft/Perfect-CRUD.git", "1.0.0"..<"2.0.0"),
-		.package(url: "https://github.com/iamjono/JSONConfig.git", "3.0.0"..<"4.0.0"),
 		.package(url: "https://github.com/PerfectlySoft/Perfect-MySQL.git", "3.0.0"..<"4.0.0")
 	],
 	targets: [
-		.target(name: "CSCoreDB", dependencies: ["PerfectCRUD", "JSONConfig", "PerfectMySQL"]),
+		.target(name: "CSCoreDB", dependencies: ["PerfectCRUD", "PerfectMySQL"]),
 		.testTarget(name: "CSCoreDBTests", dependencies: ["CSCoreDB"])
 	]
 )

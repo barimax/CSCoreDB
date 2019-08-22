@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "JSONConfig",
-        "repositoryURL": "https://github.com/iamjono/JSONConfig.git",
-        "state": {
-          "branch": null,
-          "revision": "e4c50a3b9f75014243b72ff6ed569dea961579b7",
-          "version": "3.1.0"
-        }
-      },
-      {
         "package": "PerfectCRUD",
         "repositoryURL": "https://github.com/PerfectlySoft/Perfect-CRUD.git",
         "state": {
@@ -35,15 +26,6 @@
           "branch": null,
           "revision": "afec636bfa3302ea155f462f139da46a53fd351a",
           "version": "2.1.0"
-        }
-      },
-      {
-        "package": "PerfectLib",
-        "repositoryURL": "https://github.com/PerfectlySoft/PerfectLib.git",
-        "state": {
-          "branch": null,
-          "revision": "5a08c2a596df23a3ae30b6ac9cb509a38384166c",
-          "version": "3.1.4"
         }
       }
     ]

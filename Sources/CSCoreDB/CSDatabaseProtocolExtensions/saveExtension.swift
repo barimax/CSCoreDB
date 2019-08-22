@@ -7,7 +7,7 @@
 
 import PerfectCRUD
 
-extension CSViewProtocol {
+extension CSDatabaseProtocol {
     public func save(entity: Entity) throws -> Entity {
         var newEntity: Entity = entity
         if entity.id > 0 {
