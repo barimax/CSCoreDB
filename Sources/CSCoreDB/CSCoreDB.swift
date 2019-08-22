@@ -1,5 +1,3 @@
-import JSONConfig
-
 public struct CSCoreDB {
     let host: String
     let username: String
