@@ -1,9 +1,9 @@
 public struct CSCoreDB {
-    let host: String
-    let username: String
-    let password: String
-    let database: String
-    let port: Int = 3306
+    public let host: String
+    public let username: String
+    public let password: String
+    public let database: String
+    public let port: Int = 3306
 }
 
 public struct CSCoreDBConfig {
