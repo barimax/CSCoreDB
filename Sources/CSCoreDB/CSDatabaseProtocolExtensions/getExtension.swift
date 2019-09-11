@@ -7,7 +7,7 @@
 import PerfectCRUD
 
 extension CSDatabaseProtocol {
-    public func getAll() throws -> [Entity] {
+    public static func getAll() throws -> [Entity] {
         let entities = try Self.table?.select().map { $0 }
         if let result = entities {
             return result
@@ -15,7 +15,7 @@ extension CSDatabaseProtocol {
             throw CSCoreDBError.entityNotFound
         }
     }
-    public func get(id: Int) throws -> Entity {
+    public static func get(id: Int) throws -> Entity {
         guard let entity = try Self.table?.where(\Entity.id == id).first() else {
             throw CSCoreDBError.entityNotFound
         }

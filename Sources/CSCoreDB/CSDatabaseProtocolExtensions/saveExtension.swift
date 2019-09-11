@@ -8,7 +8,7 @@
 import PerfectCRUD
 
 extension CSDatabaseProtocol {
-    public func save(entity: Entity) throws -> Entity {
+    public static func save(entity: Entity) throws -> Entity {
         var newEntity: Entity = entity
         if entity.id > 0 {
             try Self.table?.where(\Entity.id == entity.id).update(entity)
