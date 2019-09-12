@@ -8,13 +8,13 @@
 import PerfectCRUD
 
 extension CSDatabaseProtocol {
-    public static func save(entity: Entity) throws -> Entity {
+    public func save(entity: Entity) throws -> Entity {
         var newEntity: Entity = entity
         if entity.id > 0 {
-            try Self.table?.where(\Entity.id == entity.id).update(entity)
+            try table.where(\Entity.id == entity.id).update(entity)
         }else{
-            try Self.table?.insert(entity)
-            guard let newId: Int = try Self.db?.lastInsertedId() else {
+            try table.insert(entity)
+            guard let newId: Int = try db.lastInsertedId() else {
                 throw CSCoreDBError.saveError(message: "No new ID.")
             }
             newEntity.id = newId
