@@ -6,7 +6,7 @@
 //
 import PerfectCRUD
 
-extension CSDatabaseProtocol {
+public extension CSDatabaseProtocol {
     public func getAll() throws -> [Entity] {
         let entities = try Self.table?.select().map { $0 }
         if let result = entities {
