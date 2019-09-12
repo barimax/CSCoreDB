@@ -8,7 +8,7 @@
 import PerfectCRUD
 
 public extension CSDatabaseProtocol {
-    public func delete(entityId id: Int) throws {
+    public static func delete(entityId id: Int) throws {
         try Self.table?.where(\Entity.id == id).delete()
     }
 }

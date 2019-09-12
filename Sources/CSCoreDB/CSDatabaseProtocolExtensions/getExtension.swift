@@ -15,7 +15,7 @@ public extension CSDatabaseProtocol {
             throw CSCoreDBError.entityNotFound
         }
     }
-    public func get(id: Int) throws -> Entity {
+    public static func get(id: Int) throws -> Entity {
         guard let entity = try Self.table?.where(\Entity.id == id).first() else {
             throw CSCoreDBError.entityNotFound
         }

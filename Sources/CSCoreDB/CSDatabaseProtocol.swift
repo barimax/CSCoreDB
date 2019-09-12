@@ -14,9 +14,9 @@ public protocol CSDatabaseProtocol {
     static var db: Database<MySQLDatabaseConfiguration>? { get }
     static var table: Table<Entity, Database<MySQLDatabaseConfiguration>>? { get }
     static func getAll() throws -> [Entity]
-    func get(id: Int) throws -> Entity
-    func save(entity: Entity) throws -> Entity
-    func delete(entityId id: Int) throws
+    static func get(id: Int) throws -> Entity
+    static func save(entity: Entity) throws -> Entity
+    static func delete(entityId id: Int) throws
     
 }
 public extension CSDatabaseProtocol {
