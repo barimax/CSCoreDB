@@ -13,7 +13,7 @@ public protocol CSDatabaseProtocol {
     associatedtype Entity: CSDBEntityProtocol
     static var db: Database<MySQLDatabaseConfiguration>? { get }
     static var table: Table<Entity, Database<MySQLDatabaseConfiguration>>? { get }
-    func getAll() throws -> [Entity]
+    static func getAll() throws -> [Entity]
     func get(id: Int) throws -> Entity
     func save(entity: Entity) throws -> Entity
     func delete(entityId id: Int) throws
