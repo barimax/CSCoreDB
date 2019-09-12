@@ -20,9 +20,32 @@ public protocol CSDatabaseProtocol {
     
     init()
 }
-extension CSDatabaseProtocol {
+public extension CSDatabaseProtocol {
     var table: Table<Entity, Database<MySQLDatabaseConfiguration>> {
         return db.table(Entity.self)
+    }
+    public init(dbConfiguration c: CSCoreDB?) throws {
+        self.init()
+        var dbConfiguration: CSCoreDB
+        if let uc = c {
+            dbConfiguration = uc
+        }else{
+            dbConfiguration = CSCoreDB (
+                host: "127.0.0.1",
+                username: "bmserver",
+                password: "B@r1m@x2016",
+                database: "bmMySqlDB"
+            )
+        }
+        self.db = try Database(
+            configuration: MySQLDatabaseConfiguration(
+                database: dbConfiguration.database,
+                host: dbConfiguration.host,
+                port: dbConfiguration.port,
+                username: dbConfiguration.username,
+                password: dbConfiguration.password
+            )
+        )
     }
 }
 
