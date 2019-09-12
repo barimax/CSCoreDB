@@ -8,10 +8,15 @@ import PerfectCRUD
 
 extension CSDatabaseProtocol {
     public func getAll() throws -> [Entity] {
-        return try table.select().map { $0 }
+        let entities = try Self.table?.select().map { $0 }
+        if let result = entities {
+            return result
+        }else{
+            throw CSCoreDBError.entityNotFound
+        }
     }
     public func get(id: Int) throws -> Entity {
-        guard let entity = try table.where(\Entity.id == id).first() else {
+        guard let entity = try Self.table?.where(\Entity.id == id).first() else {
             throw CSCoreDBError.entityNotFound
         }
         return entity

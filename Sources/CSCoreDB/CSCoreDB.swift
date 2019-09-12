@@ -20,17 +20,17 @@ public class CSCoreDB {
         self.database = database
     }
     
-    func connect() throws -> Database<MySQLDatabaseConfiguration> {
-        return try Database(
-            configuration: MySQLDatabaseConfiguration(
-                database: self.database,
-                host: self.host,
-                port: self.port,
-                username: self.username,
-                password: self.password
-            )
-        )
-    }
+//    func connect() throws -> Database<MySQLDatabaseConfiguration> {
+//        return try Database(
+//            configuration: MySQLDatabaseConfiguration(
+//                database: self.database,
+//                host: self.host,
+//                port: self.port,
+//                username: self.username,
+//                password: self.password
+//            )
+//        )
+//    }
 }
 
 public struct CSCoreDBConfig {
