@@ -9,5 +9,5 @@ import Foundation
 import PerfectCRUD
 
 public protocol CSDBEntityProtocol: Codable, TableNameProvider {
-    var id: Int { get set }
+    var id: UInt64 { get set }
 }

@@ -7,12 +7,12 @@
 
 import PerfectCRUD
 
-extension Database {
+public extension Database {
     struct LastID: Codable {
-        var id: Int
+        var id: UInt64
     }
-    func lastInsertedId() throws -> Int? {
-        let queryResult: [LastID] = try self.sql("SELECT CAST(LAST_INSERT_ID() as SIGNED) as id", LastID.self)
+    func lastInsertedId() throws -> UInt64? {
+        let queryResult: [LastID] = try self.sql("SELECT CAST(LAST_INSERT_ID() as UNSIGNED) as id", LastID.self)
         if queryResult.count > 0 {
             return queryResult[0].id
         }
